@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>像素冒险 - Pixel Adventure</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 首页 -->
+        <section id="home" class="page active">
+            <div class="pixel-container">
+                <h1 class="pixel-title">像素冒险</h1>
+                <p class="pixel-subtitle">Pixel Adventure</p>
+                <div class="pixel-character"></div>
+                <button class="pixel-btn" onclick="showPage('start')">开始游戏</button>
+                <button class="pixel-btn" onclick="showPage('data')">游戏数据</button>
+                <button class="pixel-btn" onclick="showPage('mvp')">MVP榜单</button>
+            </div>
+        </section>
+
+        <!-- 游戏开始界面 -->
+        <section id="start" class="page">
+            <div class="pixel-container">
+                <h2 class="pixel-title">准备开始</h2>
+                <div class="game-options">
+                    <div class="option-group">
+                        <label>选择角色:</label>
+                        <select id="character-select">
+                            <option value="warrior">战士</option>
+                            <option value="mage">法师</option>
+                            <option value="rogue">盗贼</option>
+                        </select>
+                    </div>
+                    <div class="option-group">
+                        <label>选择难度:</label>
+                        <select id="difficulty-select">
+                            <option value="easy">简单</option>
+                            <option value="normal">普通</option>
+                            <option value="hard">困难</option>
+                        </select>
+                    </div>
+                </div>
+                <canvas id="game-canvas" width="600" height="400"></canvas>
+                <div class="game-controls">
+                    <button class="pixel-btn" onclick="startGame()">开始冒险</button>
+                    <button class="pixel-btn" onclick="showPage('home')">返回主页</button>
+                </div>
+
+                <!-- 手机控制界面 -->
+                <div class="mobile-controls">
+                    <div class="joystick-container">
+                        <div id="joystick" class="joystick">
+                            <div id="joystick-knob" class="joystick-knob"></div>
+                        </div>
+                    </div>
+                    <div class="attack-button-container">
+                        <button id="attack-btn" class="attack-btn">攻击</button>
+                    </div>
+                </div>
+                <div class="game-instructions">
+                    <h3>游戏操作</h3>
+                    <p>W - 向前移动</p>
+                    <p>S - 向后移动</p>
+                    <p>A - 向左移动</p>
+                    <p>D - 向右移动</p>
+                    <p>鼠标左键 - 攻击</p>
+                    <p>游戏时间: 2分30秒</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MVP界面 -->
+        <section id="mvp" class="page">
+            <div class="pixel-container">
+                <h2 class="pixel-title">MVP榜单</h2>
+                <div class="mvp-list">
+                    <div class="mvp-item">
+                        <div class="rank">1</div>
+                        <div class="player-info">
+                            <div class="player-name">玩家A</div>
+                            <div class="player-score">得分: 9999</div>
+                        </div>
+                        <div class="mvp-badge">MVP</div>
+                    </div>
+                    <div class="mvp-item">
+                        <div class="rank">2</div>
+                        <div class="player-info">
+                            <div class="player-name">玩家B</div>
+                            <div class="player-score">得分: 8888</div>
+                        </div>
+                    </div>
+                    <div class="mvp-item">
+                        <div class="rank">3</div>
+                        <div class="player-info">
+                            <div class="player-name">玩家C</div>
+                            <div class="player-score">得分: 7777</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="pixel-btn" onclick="showPage('home')">返回主页</button>
+            </div>
+        </section>
+
+        <!-- 数据显示界面 -->
+        <section id="data" class="page">
+            <div class="pixel-container">
+                <h2 class="pixel-title">游戏数据</h2>
+                <div class="data-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">总游戏次数</div>
+                        <div class="stat-value" id="total-games">0</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">最高得分</div>
+                        <div class="stat-value" id="high-score">0</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">总游戏时长</div>
+                        <div class="stat-value" id="total-time">0分钟</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">平均得分</div>
+                        <div class="stat-value" id="avg-score">0</div>
+                    </div>
+                </div>
+                <button class="pixel-btn" onclick="showPage('home')">返回主页</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/audio.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/mobile-controls.js"></script>
+    <script src="js/music-controls-fixed.js"></script>
+</body>
+</html>
